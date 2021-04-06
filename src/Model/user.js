@@ -1,15 +1,11 @@
-let User = {
-    id: 1,
-    name: "Vitor",
-    avatar: "https://github.com/vitor-vaz.png"
-}
+class User  {
 
-module.exports = {
-    get(){
-        return User;
-    },
-
-    update(newUser){
-        User = newUser;
+    constructor(id, name, avatar){
+        this.id = id;
+        this.name = name;
+        this.avatar = avatar;
     }
+
 }
+
+module.exports = User

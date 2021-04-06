@@ -1,33 +1,27 @@
 const Task = require('../Model/task');
 
-function controllerToDoFunction(app) {
+function controllerToDoFunction(app, tasks) {
 
-    const task = Task.get();
 
-    app.get('/todo', (request, response) => {
-        response.send(Task.get());
-        console.log(task);
+    app.get('/todo', (req, res) => {
+        res.send(tasks);
+
     });
 
 
-    app.post('/todo', (request, response) => {
+    app.post('/todo', (req, res) => {
 
  
-        task.push(request.body)
+        const task = new Task(req.body.id, req.body.task_name, req.body.priority, req.body.time_waste)
 
-        response.send(Task.update(task))
+        tasks.push(task)
+
+        res.send(tasks)
 
 
-        console.log(Task.get())
+
     })
 
-    app.post('/todo/delete', (request, response) =>{
-        const id = request.body.id;
-
-        Task.delete(id);
-
-        return response.send(Task.get())
-    })
 
 }
 

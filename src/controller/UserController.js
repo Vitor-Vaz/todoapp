@@ -1,20 +1,23 @@
 const User = require('../Model/user');
 
 
-function controllerUserFunction(app){
 
-    app.get('/user',(request,response)=>{
-        response.send(User.get())
+function controllerUserFunction(app, users){
+
+    app.get('/user',(req,res)=>{
+
+        res.send(users);
     })
 
+    app.post('/user/create', (req, res) => {
 
-    app.post('/user-update',(request,response)=>{
+        const user = new User(req.body.id, req.body.name, req.body.avatar);
 
-        User.update(request.body)
+        users.push(user);
 
-        response.send(User.get());
+        res.send(users);
+
     })
-
 
 }
 

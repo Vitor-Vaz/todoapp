@@ -1,35 +1,13 @@
-let Task = [
-    {
-        id: 1,
-        name: "Ir no mercado",
-        prioridade: 2,
-        tempo_gasto: 1,
+class Task{
 
-    },
-
-    {
-        id: 2,
-        name: "levar o zezinho pra passear",
-        prioridade: 3,
-        tempo_gasto: 0.3,
-
+    constructor(id, name, priority, time_waste){
+        this.id = id;
+        this.name = name;
+        this.priority = priority;
+        this.time_waste = time_waste;
     }
+} 
 
-];
 
-module.exports = {
-    get(){
-        return Task;
-    },
 
-    update(newTask){
-        Task = newTask;
-    },
-
-    delete(id){
-        
-        Task = Task.filter(task => Number(task.id) !== Number(id))
-
-        
-    }
-}
+module.exports = Task;
