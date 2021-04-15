@@ -1,10 +1,12 @@
 class Task{
 
-    constructor(id, name, priority, time_waste){
+    constructor(id, task_name, description, status, date_creation){
         this.id = id;
-        this.name = name;
-        this.priority = priority;
-        this.time_waste = time_waste;
+        this.task_name = task_name;
+        this.description = description;
+        this.status = status;
+        this.date_creation = date_creation;
+
     }
 } 
 
