@@ -5,7 +5,8 @@ class UsuariosDAO {
     }
 
 
-    listAllUsers() {
+    async listAllUsers() {
+
         return new Promise((resolve, reject) => {
             this.bd.all(`SELECT * FROM Users`,
                 (err, users) => {
@@ -17,9 +18,6 @@ class UsuariosDAO {
                 }
             )
         })
-
-
-
     }
 
     putUser(user) {
@@ -40,11 +38,15 @@ class UsuariosDAO {
     listUserById(id) {
 
         return new Promise((resolve, reject) => {
-            this.bd.run(`SELECT * FROM Users WHERE id = ?`, id,
+
+            console.log(id);
+
+            this.bd.get(`SELECT * FROM Users WHERE id = ?`, id,
                 (err, user) => {
                     if (err) {
                         reject(`não foi possivel inserir dados: ${err}`);
                     } else {
+
                         resolve(user);
                     }
                 }

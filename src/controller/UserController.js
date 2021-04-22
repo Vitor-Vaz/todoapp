@@ -1,76 +1,82 @@
 const User = require('../Model/user');
 const UsuariosDAO = require('../DAO/usuarios-dao');
 
-function controllerUserFunction(app, bd){
+function controllerUserFunction(app, bd) {
 
     const usuarioDAO = new UsuariosDAO(bd);
 
-    app.get('/user',(req,res)=>{
+    app.get('/user', async (req, res) => {
 
-        usuarioDAO.listAllUsers()
-        .then((users) => { res.send(users)})
-        .catch((err) => res.send( 
-            { mesagem: "Falha ao listar usuarios"+err}
-        ))
-
+        try {
+            const users = await usuarioDAO.listAllUsers();
+       
+            res.send(users);
+        } catch (e) {
+            res.send(`não foi possivel localizar tabela. log do erro: ${e}`);
+        }
 
     })
 
-    app.post('/user/create', (req, res) => {
+    app.post('/user/create', async (req, res) => {
 
         const body = req.body;
 
         let user = new User(body.id, body.name, body.email, body.password);
-
-        usuarioDAO.putUser(user)
-        .then((mensagemSucesso) => res.send( {mensagem: mensagemSucesso}))
-        .catch((mensagemFalha) => res.send( {mensagem: mensagemFalha}))
-
-        
-
-    })
-
-    app.get('/user/:id', (req, res) => {
-
-
-        const id = req.params.id;
-    
-
-
-        usuarioDAO.listUserById(id)
-        .then((user) => { res.send(user) } )
-        .catch((mensagemFalha) => res.send( {mensagem: mensagemFalha}))
-
+        try {
+            await usuarioDAO.putUser(user);
+            res.send("Usuario criado com sucesso!");
+        } catch (e) {
+            res.send(`não foi possivel criar usuario. log do erro: ${e}`)
+        }
 
     })
 
-    app.delete('/user/delete/:id', (req, res) =>{
-
+    app.get('/user/:id', async (req, res) => {
 
         const id = req.params.id;
 
-        usuarioDAO.deleteUser(id)
-        .then((mensagemSucesso) => res.send( {mensagem: mensagemSucesso}))
-        .catch((mensagemFalha) => res.send( {mensagem: mensagemFalha}))
+        try {
+            const user = await usuarioDAO.listUserById(id)
 
-
+            res.send(user)
+        } catch (e) {
+            res.send(`Usuario não encontrado. log do erro: ${e}`)
+        }
 
     })
 
-    app.put('/user/update/:id', (req, res) => {
-        
+
+
+
+    app.delete('/user/delete/:id', async (req, res) => {
+
         const id = req.params.id;
-        
+
+        try {
+            await usuarioDAO.deleteUser(id)
+
+            res.send("Usuario deletado com sucesso")
+        } catch (e) {
+            res.send(`Usuario não encontrado. log do erro: ${e}`)
+        }
+
+    })
+
+    app.put('/user/update/:id', async (req, res) => {
+
+        const id = req.params.id;
+
         const body = req.body;
 
         let user = new User(0, body.name, body.email, body.password);
 
-        usuarioDAO.updateUser(user, id)
-        .then((mensagemSucesso) => res.send( {mensagem: mensagemSucesso}))
-        .catch((mensagemFalha) => res.send( {mensagem: mensagemFalha}))
+        try {
+            await usuarioDAO.updateUser(user, id)
 
-        
-
+            res.send("Usuario atualizado com sucesso")
+        } catch (e) {
+            res.send(`Usuario não encontrado. log do erro: ${e}`)
+        }
     })
 
 

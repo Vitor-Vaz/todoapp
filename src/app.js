@@ -8,6 +8,8 @@ const banco = require('./infra/sqlite-db');
 const cors = require('cors');
 
 
+
+
 app.use(cors());
 
 app.use(bodyParser.json());

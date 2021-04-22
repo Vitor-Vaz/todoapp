@@ -40,7 +40,7 @@ class TasksDAO {
     listTaskById(id) {
 
         return new Promise((resolve, reject) => {
-            this.bd.run(`SELECT * FROM Tasks WHERE id = ?`, id,
+            this.bd.get(`SELECT * FROM Tasks WHERE id = ?`, id,
                 (err, task) => {
                     if (err) {
                         reject(`Dados não foram encontrados: ${err}`);
