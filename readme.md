@@ -5,18 +5,39 @@
 
 ---
 
+![Express](https://img.shields.io/badge/-Express-242424?style=for-the-badge&logo=express&logoColor=e82c2f)
+![Nodejs](https://img.shields.io/badge/-Nodejs-339933?style=for-the-badge&logo=Node.js&logoColor=ffffff)
+![Npm](https://img.shields.io/badge/-npm-CB3837?style=for-the-badge&logo=npm)
+![Npm](https://img.shields.io/badge/-Express-2fc3e0?style=for-the-badge&logo=sqlite&logoColor=FFFFFF)
+
+
  ## 📌 Como instalar? 
 
 - Faça o fork do projeto em seu computador.
-- Rode o comando "npm install" no terminal do VSCode e ele irá baixar.todas as dependencias necessarias para que a API rode sem intercorrencias.
+
+``` 
+git clone https://github.com/Vitor-Vaz/todoapp.git 
+```
+- Rode o seguinte comando no terminal do VSCode e ele irá baixar.todas as dependencias necessarias para que a API rode sem intercorrencias.
+
+``` 
+npm install
+```
+
 - Após isso, a porta na qual o servidor está configurada no arquivo "app.js" pela porta 3333, caso queira mudar, é só mudar a variavel port da linha 3.
-- Rode o comando "npm start" no console e o servidor ficará ligado e pronto para utilizar as CRUD's.
+
+- Rode o comando no console e o servidor ficará ligado e pronto para utilizar as CRUD's.
+
+``` 
+npm start
+```
+
 
 <br>
 <br>
 
 
-<strong><p style="text-align: center; font-size: 1.5rem; ">  🛣️Rotas disponiveis </p> </strong>
+<strong><p style="text-align: center; font-size: 1.5rem; ">  🛣️ Rotas disponiveis </p> </strong>
 
 - listar todos os usuarios:
 
@@ -61,7 +82,7 @@ GET: http://localhost:3333/user/:id
 
 
 
-``` js
+``` 
 DELETE: http://localhost:3333/user/delete/:id
 ```
 
@@ -69,7 +90,7 @@ DELETE: http://localhost:3333/user/delete/:id
 
 
 
-``` js
+``` 
 PUT: http://localhost:3333/user/update/:id
 ```
 
@@ -78,7 +99,7 @@ PUT: http://localhost:3333/user/update/:id
 
 
 
-``` js
+``` 
 POST: http://localhost:3333/user/create
 ```
 
@@ -132,7 +153,7 @@ GET: http://localhost:3333/task/:id
 
 
 
-``` js
+``` 
 DELETE: http://localhost:3333/task/delete/:id
 ```
 
@@ -140,7 +161,7 @@ DELETE: http://localhost:3333/task/delete/:id
 
 
 
-``` js
+``` 
 PUT: http://localhost:3333/task/update/:id
 ```
 
@@ -149,7 +170,7 @@ PUT: http://localhost:3333/task/update/:id
 
 
 
-``` js
+``` 
 POST: http://localhost:3333/task
 ```
 
