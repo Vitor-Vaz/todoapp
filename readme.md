@@ -49,7 +49,7 @@ GET: http://localhost:3333/user
 [
   {
     "id": 1,
-    "name": "aaaaaaaaaaaaaa",
+    "name": "Eugenio Oliveira",
     "email": "eugenio.oliveira@bol.com.br",
     "password": '*******'
   },
@@ -71,7 +71,7 @@ GET: http://localhost:3333/user/:id
 // resultado
   {
     "id": 1,
-    "name": "aaaaaaaaaaaaaa",
+    "name": "Eugenio Oliveira",
     "email": "eugenio.oliveira@bol.com.br",
     "password": '*******'
   }
