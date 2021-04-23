@@ -44,7 +44,7 @@ npm start
 
 
 ``` js
-GET: http://localhost:3333/user 
+GET: 'http://localhost:3333/user'
 // resultado
 [
   {
@@ -67,7 +67,7 @@ GET: http://localhost:3333/user
 
 
 ``` js
-GET: http://localhost:3333/user/:id 
+GET: 'http://localhost:3333/user/:id' 
 // resultado
   {
     "id": 1,
@@ -109,7 +109,7 @@ POST: http://localhost:3333/user/create
 
 
 ``` js
-GET: http://localhost:3333/task 
+GET: 'http://localhost:3333/task' 
 // resultado
 [
   {
@@ -136,7 +136,7 @@ GET: http://localhost:3333/task
 
 
 ``` js
-GET: http://localhost:3333/task/:id
+GET: 'http://localhost:3333/task/:id'
 // resultado
 {
   "id": 8,
